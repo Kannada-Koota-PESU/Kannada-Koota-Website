@@ -16,8 +16,8 @@
   }
   .container video{
     /* margin-top: 0vh; */
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     /* object-fit: fill; */
     
   }
@@ -63,4 +63,53 @@
     100% {
         transform: translate(-50%, 0);
     }
+  }
+
+
+  .message {
+    position: absolute;
+    color: #c5a4a4;
+    font-size: 30px;
+  font-weight: 100;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    /* animation-name: fade-out ; */
+    /* animation-name: color-change; */
+
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  }
+  
+
+.hide{
+  animation-name: fade-out;
+  animation-duration: 10s;
+}
+
+
+  @keyframes color-change {
+    0% {
+      color: red;
+    }
+    50% {
+      color: #FFFF00;
+    }
+    100% {
+      color: white;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+    
   }
