@@ -1,0 +1,53 @@
+.upcoming {
+    /* display: flex; */
+    /* flex:1; */
+    /* flex-direction: row; */
+    background-image: url("../../assets/Gradient.png");
+    /* position: absolute; */
+    width: 1512px;
+    height: 1512px;
+    /* left: 1511px; */
+    /* top: 3776px; */
+}
+
+.upcoming-heading {
+    /* flex: 1; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
+    /* flex-direction: column; */
+    padding-top: 20vh;
+    padding-left: 5vh;
+    margin-right: 5rem;
+    
+}
+
+.upcoming-heading h1 {
+    
+    /* width: 622px; */
+
+    height: 70px;
+    left: 77px;
+    top: 208px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 61px;
+
+    /* color: #000; */
+    color: #462A00;
+
+}
+
+/* extras */
+.eventcards {
+    padding-top: 12vh;
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    
+}
