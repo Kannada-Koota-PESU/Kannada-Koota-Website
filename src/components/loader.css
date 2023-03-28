@@ -4,6 +4,7 @@
     margin: 0;
     position: 0;
     box-sizing: border-box;
+    user-select:none;
   }
   .container{
     width: 100%;
