@@ -1,6 +1,6 @@
 import Vid from '../assets/videoplayback.mp4';
 import './loader.css'
-import {React, useEffect} from 'react';
+import React,{ useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -21,13 +21,52 @@ function Loader() {
     };
   }, [navigate]);
 
+  
+  
+// --------------------------------
+const [messages, setMessages] = useState([]);
+
+  function getRandomPosition() {
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+    const top = Math.floor(Math.random() * height);
+    const left = Math.floor(Math.random() * width);
+    return { top, left };
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const words = ["ಜೀವ"," ದೈವ ","ಬದುಕು","  ಸಂಸ್ಕೃತಿ","  ಪರಂಪರೆ","ಪ್ರೀತಿ","ಸೊಗಸು","ಆರಾಧ್ಯ",
+      'ಜನನಿ',' ಉಸಿರು',' ಹೆಮ್ಮೆ','ಅಭಿಮಾನ',' ಗೌರವ',' ಭಾವ' ];
+      const text = words[Math.floor(Math.random() * words.length)];
+      const message = {
+        text: text,
+        style: {
+          top: getRandomPosition().top + 'px',
+          left: getRandomPosition().left + 'px',
+          opacity: 1,
+        },
+      };
+      setMessages((prevMessages) => [...prevMessages, message]);
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  
+console.log(messages)
+
+
+
+  
+
 
 
   return (
     <>
     <meta charSet="UTF-8" />
   <title>loader</title>
-  <div className="container">
+  <div className="container" >
 
     <video autoPlay loop muted>
       <source src={Vid} type="video/mp4" />
@@ -41,6 +80,17 @@ function Loader() {
       <path d="M 50 20 L 90 60 L 80 70 L 50 40 L 20 70 L 10 60 L 50 20 Z" />
     </svg>
   </div>
+  <div id='container'>
+  {messages.map((message, index) => (
+        <div
+          key={index}
+          className="message hide color-change"
+          style={message.style}
+        >
+          {message.text}
+        </div>
+      ))}
+      </div>
 </>
 
   );
