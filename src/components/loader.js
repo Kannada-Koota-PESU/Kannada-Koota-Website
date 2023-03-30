@@ -1,4 +1,7 @@
-import Vid from '../assets/videoplayback.mp4';
+import Vid2 from '../assets/videoplayback2.mp4';
+import Vid1 from '../assets/videoplayback1.mp4';
+
+
 import './loader.css'
 import React,{ useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -22,7 +25,12 @@ function Loader() {
         document.removeEventListener('click', handleClick);
       };
     }, [navigate]);
-
+    useEffect(()=>{
+      setTimeout(() => {
+    setRaised(true);
+        
+      }, 10000);
+    },[]);
 
 
   
@@ -71,15 +79,20 @@ console.log(messages)
     
   <div className="container" >
 
-    <video autoPlay loop muted>
-      <source src={Vid} type="video/mp4" />
+    <video autoPlay loop muted id='v1'>
+      <source src={Vid1} type="video/mp4" />
     </video>
+    <video autoPlay loop muted id='v2'>
+      <source src={Vid2} type="video/mp4" />
+    </video>
+    
+
+
     <div className="text">
-      <h1>ಕನ್ನಡಕೂಟ</h1>
+      <h1>ಕನ್ನಡ ಕೂಟ</h1>
     </div>
   </div>
   
-  <div id='container'>
   {messages.map((message, index) => (
         <div
           key={index}
@@ -89,7 +102,6 @@ console.log(messages)
           {message.text}
         </div>
       ))}
-      </div>
 </div>
 
   );
